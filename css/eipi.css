@@ -154,12 +154,12 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 0.4rem 0.75rem;
+  gap: 0.35rem 0.55rem;
   width: 100%;
-  min-height: 3.05rem;
+  min-height: 2.5rem;
   background: #fff;
   border-radius: 999px;
-  padding: 0.45rem clamp(0.75rem, 1.8vw, 2.1rem) 0.45rem clamp(0.85rem, 1.9vw, 2.2rem);
+  padding: 0.3rem clamp(0.6rem, 1.4vw, 1.5rem) 0.3rem clamp(0.7rem, 1.5vw, 1.65rem);
   box-shadow: 0 3px 22px rgba(15, 23, 42, 0.07), 0 1px 2px rgba(15, 23, 42, 0.04);
   transition: padding 0.22s ease, min-height 0.22s ease, box-shadow 0.22s ease, gap 0.22s ease;
 }
@@ -172,7 +172,7 @@
   letter-spacing: 0;
   display: flex;
   align-items: center;
-  padding: 0.15rem 0;
+  padding: 0.15rem 0 0.15rem 0.15rem;
   margin-right: 0;
   z-index: 2;
 }
@@ -183,12 +183,14 @@
 }
 
 .eipi-navbar .eipi-logo {
-  height: clamp(40px, 5.5vw, 54px);
+  height: clamp(52px, 7.25vw, 72px);
   width: auto;
-  max-width: min(320px, 68vw);
+  max-width: min(440px, 78vw);
   object-fit: contain;
   display: block;
-  transition: height 0.22s ease, max-width 0.22s ease;
+  transform: scale(1.62);
+  transform-origin: left center;
+  transition: height 0.22s ease, max-width 0.22s ease, transform 0.22s ease;
 }
 
 /* Toggler — minimal bars on white */
@@ -230,7 +232,7 @@
 
   .eipi-nav-shell {
     flex-wrap: nowrap;
-    gap: clamp(0.5rem, 1.5vw, 1.25rem);
+    gap: 0.35rem 0.55rem;
   }
 
   .eipi-collapse {
@@ -252,7 +254,7 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: clamp(0.25rem, 0.8vw, 0.5rem);
+    gap: 0.22rem 0.42rem;
     margin: 0 auto;
     padding: 0 clamp(0.35rem, 1.2vw, 1.25rem);
     max-width: none;
@@ -272,12 +274,12 @@
 .eipi-pill-link {
   display: inline-flex !important;
   align-items: center;
-  gap: 0.35rem;
-  padding: 0.28rem 0.62rem 0.28rem 0.32rem !important;
+  gap: 0.32rem !important;
+  padding: 0.26rem 0.58rem 0.26rem 0.3rem !important;
   border-radius: 999px;
   background: #f1f1f5;
   color: #1e293b !important;
-  font-size: 0.72rem;
+  font-size: 0.7rem !important;
   font-weight: 600;
   letter-spacing: 0.01em;
   text-transform: none;
@@ -302,12 +304,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
   background: #fff;
   flex-shrink: 0;
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   color: #475569;
   box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
   transition: width 0.22s ease, height 0.22s ease, font-size 0.22s ease;
@@ -324,17 +326,6 @@
 @media (min-width: 1400px) {
   .eipi-nav-outer.container-fluid {
     max-width: min(1840px, calc(100vw - 4rem));
-  }
-
-  .eipi-pill-link {
-    padding: 0.32rem 0.85rem 0.32rem 0.38rem !important;
-    font-size: 0.76rem;
-  }
-
-  .eipi-pill-icon {
-    width: 26px;
-    height: 26px;
-    font-size: 0.88rem;
   }
 }
 
@@ -358,7 +349,7 @@
     border-top: none;
     width: auto;
     justify-content: flex-end;
-    gap: 0.4rem;
+    gap: 0.32rem;
   }
 }
 
@@ -366,8 +357,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  height: 30px;
+  width: 26px;
+  height: 26px;
   margin: 0;
   padding: 0;
   border: 1px solid #e2e8f0;
@@ -391,7 +382,7 @@
 }
 
 .eipi-lang-btn i {
-  font-size: 1rem;
+  font-size: 0.88rem;
   line-height: 1;
   display: block;
 }
@@ -437,11 +428,11 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.4rem 0.85rem;
+  padding: 0.3rem 0.65rem;
   border-radius: 999px;
   background: #032761;
   color: #fff !important;
-  font-size: 0.68rem;
+  font-size: 0.6rem;
   font-weight: 700;
   letter-spacing: 0.07em;
   text-transform: uppercase;
@@ -532,12 +523,6 @@
   transition: padding 0.22s ease, min-height 0.22s ease, box-shadow 0.22s ease;
 }
 
-.eipi-navbar.ftco-navbar-light.scrolled .eipi-logo {
-  height: clamp(30px, 3.8vw, 40px) !important;
-  max-width: min(240px, 58vw) !important;
-  transition: height 0.22s ease, max-width 0.22s ease;
-}
-
 .eipi-navbar.ftco-navbar-light.scrolled .eipi-nav-pills {
   gap: 0.22rem 0.42rem !important;
 }
@@ -588,8 +573,9 @@
   }
 
   .eipi-navbar .eipi-logo {
-    max-width: min(280px, 65vw);
-    height: clamp(40px, 10vw, 52px);
+    max-width: min(360px, 82vw);
+    height: clamp(48px, 12vw, 64px);
+    transform: scale(1.42);
   }
 
   .eipi-nav-pills {
@@ -2005,6 +1991,10 @@
   letter-spacing: -0.035em;
   color: #032761 !important;
   margin-bottom: 0.4rem;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+  min-height: 1.2em;
+  min-width: 2.5ch;
 }
 
 .eipi-stat-label {
@@ -2141,6 +2131,10 @@
   padding-bottom: 0.25rem;
 }
 
+.eipi-footer-main > [class*="col-"] {
+  min-width: 0;
+}
+
 .eipi-footer-logo-link {
   margin-bottom: 0.85rem;
 }
@@ -2260,8 +2254,38 @@
   color: inherit;
 }
 
+.eipi-footer-contact-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.28rem;
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.eipi-footer-contact-label {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.48);
+  line-height: 1.2;
+}
+
+.eipi-footer-contact-item a.eipi-footer-contact-email {
+  display: block;
+  max-width: 100%;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .eipi-footer-contact-item a.eipi-footer-contact-text,
-.eipi-footer-contact-text a {
+.eipi-footer-contact-text a,
+.eipi-footer-contact-item a.eipi-footer-contact-email {
   color: rgba(255, 255, 255, 0.88) !important;
   text-decoration: none !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -2269,7 +2293,8 @@
 }
 
 .eipi-footer-contact-item a.eipi-footer-contact-text:hover,
-.eipi-footer-contact-text a:hover {
+.eipi-footer-contact-text a:hover,
+.eipi-footer-contact-item a.eipi-footer-contact-email:hover {
   color: #fff !important;
   border-bottom-color: rgba(255, 255, 255, 0.45);
 }
@@ -2313,11 +2338,19 @@
 .eipi-page-hero {
   position: relative;
   z-index: 0;
-  min-height: 13.5rem;
-  padding: 5.85rem 0 2.35rem;
+  min-height: clamp(16.5rem, 40vw, 22rem);
+  padding-top: clamp(7.25rem, 12vw, 9.75rem);
+  padding-bottom: clamp(3.85rem, 6.5vw, 5.75rem);
+  padding-left: 0;
+  padding-right: 0;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
+}
+
+/* Extra room above the skewed ftco-degree-bg wedge so lead text stays readable */
+.eipi-page-hero.ftco-degree-bg {
+  padding-bottom: clamp(4.35rem, 7.5vw, 6.25rem);
 }
 
 .eipi-page-hero .overlay {
@@ -2336,7 +2369,9 @@
 }
 
 .eipi-page-hero-inner {
-  padding-left: 0.15rem;
+  padding-left: clamp(0.15rem, 1vw, 0.35rem);
+  padding-right: 0.25rem;
+  max-width: 40rem;
 }
 
 .eipi-breadcrumbs {
@@ -2345,7 +2380,8 @@
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.72);
-  margin-bottom: 0.55rem;
+  margin-bottom: 0.9rem;
+  margin-top: 0.15rem;
 }
 
 .eipi-breadcrumbs a {
@@ -2374,16 +2410,17 @@
   font-weight: 600;
   letter-spacing: -0.035em;
   color: #fff !important;
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.75rem;
   line-height: 1.15;
   text-shadow: 0 2px 18px rgba(0, 0, 0, 0.35);
 }
 
 .eipi-page-lead {
   font-size: 0.88rem;
-  line-height: 1.45;
-  color: rgba(255, 255, 255, 0.82) !important;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.88) !important;
   margin: 0;
+  padding-bottom: 0.35rem;
   max-width: 26rem;
   text-shadow: 0 1px 12px rgba(0, 0, 0, 0.25);
 }
@@ -2426,8 +2463,13 @@
 
 @media (max-width: 575.98px) {
   .eipi-page-hero {
-    min-height: 12rem;
-    padding: 5.25rem 0 2rem;
+    min-height: 15rem;
+    padding-top: 6.5rem;
+    padding-bottom: 3.65rem;
+  }
+
+  .eipi-page-hero.ftco-degree-bg {
+    padding-bottom: 4.15rem;
   }
 }
 
@@ -2563,7 +2605,7 @@
 }
 
 .eipi-offer-table--modern {
-  min-width: 680px;
+  min-width: 720px;
   border-collapse: separate;
   border-spacing: 0;
   font-size: 0.75rem;
@@ -2584,14 +2626,15 @@
 }
 
 .eipi-offer-table--modern .eipi-offer-th--img {
-  width: 4.25rem;
+  width: 6.5rem;
+  min-width: 6.5rem;
   background: #f1f5f9 !important;
 }
 
 .eipi-offer-table--modern .eipi-offer-th--name {
   text-align: left;
   min-width: 9.5rem;
-  padding-left: 0.65rem;
+  padding-left: 0.85rem;
 }
 
 .eipi-offer-table--modern tbody tr {
@@ -2614,16 +2657,29 @@
 }
 
 .eipi-offer-td--img {
-  width: 4.25rem;
+  width: 6.5rem;
+  min-width: 6.5rem;
+  padding: 0.85rem 1rem 0.85rem 1.1rem !important;
+  vertical-align: middle;
+}
+
+.eipi-offer-thumb-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2rem;
 }
 
 .eipi-offer-thumb {
-  width: 3.35rem;
-  height: 2.6rem;
-  border-radius: 8px;
+  width: 4.75rem;
+  height: 3.5rem;
+  flex-shrink: 0;
+  border-radius: 10px;
   background-size: cover;
   background-position: center;
-  border: 1px solid rgba(15, 23, 42, 0.06);
+  background-repeat: no-repeat;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
 }
 
 .eipi-offer-row-title {
@@ -3196,6 +3252,10 @@
   background: #f8fafc !important;
 }
 
+.eipi-contact-page-section .row > [class*="col-"] {
+  min-width: 0;
+}
+
 .eipi-contact-info-stack {
   display: flex;
   flex-direction: column;
@@ -3236,6 +3296,11 @@
   font-size: 1.05rem;
 }
 
+.eipi-contact-info-body {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
 .eipi-contact-info-label {
   font-size: 0.58rem;
   font-weight: 700;
@@ -3257,6 +3322,14 @@
   text-decoration: none !important;
   border-bottom: 1px solid rgba(3, 39, 97, 0.25);
   transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.eipi-contact-info-text a.eipi-contact-info-email {
+  display: block;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .eipi-contact-info-text a:hover {
@@ -3377,4 +3450,155 @@
   .eipi-contact-map {
     min-height: 220px;
   }
+}
+
+/* —— Floating contact (WhatsApp, téléphone, e-mail) —— bas gauche —— */
+.eipi-contact-fab {
+  position: fixed;
+  z-index: 1040;
+  left: max(1rem, env(safe-area-inset-left, 0px));
+  bottom: max(1.1rem, env(safe-area-inset-bottom, 0px));
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.62rem;
+  pointer-events: none;
+}
+
+.eipi-contact-fab > * {
+  pointer-events: auto;
+}
+
+.eipi-contact-fab__actions {
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.62rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.eipi-contact-fab--open .eipi-contact-fab__actions {
+  display: flex;
+}
+
+.eipi-contact-fab__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.35rem;
+  height: 3.35rem;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  color: #fff !important;
+  text-decoration: none !important;
+  box-shadow:
+    0 4px 14px rgba(15, 23, 42, 0.22),
+    0 2px 6px rgba(15, 23, 42, 0.12);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+.eipi-contact-fab__btn:hover {
+  transform: scale(1.06);
+  box-shadow:
+    0 6px 22px rgba(15, 23, 42, 0.28),
+    0 3px 10px rgba(15, 23, 42, 0.14);
+  filter: brightness(1.05);
+  color: #fff !important;
+}
+
+.eipi-contact-fab__btn:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+.eipi-contact-fab__btn .icon {
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.eipi-contact-fab__btn i {
+  font-size: 1.45rem;
+  line-height: 1;
+  display: block;
+}
+
+.eipi-contact-fab__btn--whatsapp {
+  background: #25d366 !important;
+}
+
+.eipi-contact-fab__btn--phone {
+  background: #10b981 !important;
+}
+
+.eipi-contact-fab__btn--email {
+  background: #0ea5e9 !important;
+}
+
+.eipi-contact-fab__btn--toggle {
+  background: #032761 !important;
+  padding: 0;
+}
+
+.eipi-contact-fab__toggle-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.eipi-contact-fab__toggle-icon--close {
+  display: none;
+}
+
+.eipi-contact-fab--open .eipi-contact-fab__toggle-icon--open {
+  display: none;
+}
+
+.eipi-contact-fab--open .eipi-contact-fab__toggle-icon--close {
+  display: flex;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eipi-contact-fab__btn {
+    transition: none;
+  }
+
+  .eipi-contact-fab__btn:hover {
+    transform: none;
+  }
+}
+
+@media print {
+  .eipi-contact-fab {
+    display: none !important;
+  }
+}
+
+/* Formspree: honeypot + post-submit banner */
+.eipi-form-honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.eipi-form-return-success {
+  border-radius: 12px;
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  background: rgba(240, 253, 244, 0.95);
+  color: #14532d;
+  font-size: 0.9rem;
+  margin-bottom: 0;
 }

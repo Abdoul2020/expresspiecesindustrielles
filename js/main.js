@@ -194,25 +194,34 @@
 	};
 
 	var counter = function() {
-		
+
 		$('#section-counter, .hero-wrap, .ftco-counter').waypoint( function( direction ) {
 
-			if( direction === 'down' && !$(this.element).hasClass('ftco-animated') ) {
-
-				var comma_separator_number_step = $.animateNumber.numberStepFactories.separator(',')
-				$('.number').each(function(){
-					var $this = $(this),
-						num = $this.data('number');
-						console.log(num);
-					$this.animateNumber(
-					  {
-					    number: num,
-					    numberStep: comma_separator_number_step
-					  }, 7000
-					);
-				});
-				
+			var $root = $(this.element);
+			if ( direction !== 'down' || $root.hasClass('ftco-counter-done') ) {
+				return;
 			}
+
+			var $nums = $root.find('.number');
+			if ( !$nums.length ) {
+				$root.addClass('ftco-counter-done');
+				return;
+			}
+
+			$root.addClass('ftco-counter-done');
+
+			var commaStep = $.animateNumber.numberStepFactories.separator(',');
+			$nums.each(function(){
+				var $n = $(this);
+				var num = Number( $n.data('number') );
+				if ( !isFinite(num) ) {
+					return;
+				}
+				$n.animateNumber(
+					{ number: num, numberStep: commaStep },
+					2000
+				);
+			});
 
 		} , { offset: '95%' } );
 
@@ -323,4 +332,94 @@
 
 
 })(jQuery);
+
+/**
+ * Pastilles contact (WhatsApp, téléphone, e-mail) — bas gauche.
+ * Optionnel, avant ce script : window.EIPI_CONTACT_FAB = { phone: '+33…', whatsapp: '33…', email: '…' };
+ */
+(function () {
+	if (document.getElementById('eipi-contact-fab')) {
+		return;
+	}
+
+	var cfg = window.EIPI_CONTACT_FAB || {};
+	var phoneRaw = cfg.phone || '+905377724295';
+	var waDigits = String(cfg.whatsapp != null ? cfg.whatsapp : phoneRaw).replace(/\D/g, '');
+	var email = cfg.email || 'edoh.gabiam@expresspiecesindustrielles.com';
+	var lang = (document.documentElement.getAttribute('lang') || 'fr').toLowerCase().slice(0, 2);
+	var isEn = lang === 'en';
+
+	var label = {
+		region: isEn ? 'Quick contact' : 'Contact rapide',
+		wa: isEn ? 'WhatsApp' : 'WhatsApp',
+		tel: isEn ? 'Phone' : 'Téléphone',
+		mail: isEn ? 'Email' : 'E-mail',
+		toggleOpen: isEn ? 'Open contact options' : 'Ouvrir les options de contact',
+		toggleClose: isEn ? 'Close' : 'Fermer'
+	};
+
+	var root = document.createElement('div');
+	root.id = 'eipi-contact-fab';
+	root.className = 'eipi-contact-fab';
+	root.setAttribute('role', 'region');
+	root.setAttribute('aria-label', label.region);
+
+	var actions = document.createElement('div');
+	actions.id = 'eipi-contact-fab-actions';
+	actions.className = 'eipi-contact-fab__actions';
+
+	var wa = document.createElement('a');
+	wa.className = 'eipi-contact-fab__btn eipi-contact-fab__btn--whatsapp';
+	wa.href = 'https://wa.me/' + waDigits;
+	wa.target = '_blank';
+	wa.rel = 'noopener noreferrer';
+	wa.setAttribute('aria-label', label.wa);
+	wa.innerHTML = '<span class="icon icon-whatsapp" aria-hidden="true"></span>';
+
+	var tel = document.createElement('a');
+	tel.className = 'eipi-contact-fab__btn eipi-contact-fab__btn--phone';
+	tel.href = 'tel:' + String(phoneRaw).replace(/\s/g, '');
+	tel.setAttribute('aria-label', label.tel);
+	tel.innerHTML = '<i class="ion-ios-call" aria-hidden="true"></i>';
+
+	var mail = document.createElement('a');
+	mail.className = 'eipi-contact-fab__btn eipi-contact-fab__btn--email';
+	mail.href = 'mailto:' + email;
+	mail.setAttribute('aria-label', label.mail);
+	mail.innerHTML = '<span class="icon icon-envelope" aria-hidden="true"></span>';
+
+	var toggle = document.createElement('button');
+	toggle.type = 'button';
+	toggle.className = 'eipi-contact-fab__btn eipi-contact-fab__btn--toggle';
+	toggle.setAttribute('aria-expanded', 'false');
+	toggle.setAttribute('aria-controls', 'eipi-contact-fab-actions');
+	toggle.setAttribute('aria-label', label.toggleOpen);
+	toggle.innerHTML =
+		'<span class="eipi-contact-fab__toggle-icon eipi-contact-fab__toggle-icon--open"><i class="ion-ios-chatbubbles" aria-hidden="true"></i></span>' +
+		'<span class="eipi-contact-fab__toggle-icon eipi-contact-fab__toggle-icon--close"><i class="ion-ios-close" aria-hidden="true"></i></span>';
+
+	actions.appendChild(wa);
+	actions.appendChild(tel);
+	actions.appendChild(mail);
+	root.appendChild(actions);
+	root.appendChild(toggle);
+	document.body.appendChild(root);
+
+	function setOpen(open) {
+		root.classList.toggle('eipi-contact-fab--open', open);
+		toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+		toggle.setAttribute('aria-label', open ? label.toggleClose : label.toggleOpen);
+	}
+
+	toggle.addEventListener('click', function () {
+		setOpen(!root.classList.contains('eipi-contact-fab--open'));
+	});
+
+	document.addEventListener('keydown', function (e) {
+		if (e.key === 'Escape' && root.classList.contains('eipi-contact-fab--open')) {
+			setOpen(false);
+			toggle.focus();
+		}
+	});
+})();
 
