@@ -423,3 +423,25 @@
 	});
 })();
 
+/**
+ * Force-refresh catalogue PDF URL to bypass browser/CDN cache.
+ */
+(function () {
+	var version = '20260426-2';
+	var links = document.querySelectorAll('a.eipi-catalogue');
+	if (!links.length) {
+		return;
+	}
+
+	links.forEach(function (link) {
+		try {
+			var url = new URL(link.getAttribute('href'), window.location.href);
+			url.pathname = url.pathname.replace(/expresspieceCatalog(?:1)?\.pdf$/i, 'expresspieceCatalog1.pdf');
+			url.searchParams.set('v', version);
+			link.setAttribute('href', url.pathname + url.search);
+		} catch (e) {
+			// Ignore malformed URLs and keep original href.
+		}
+	});
+})();
+
