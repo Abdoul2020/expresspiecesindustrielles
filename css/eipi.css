@@ -3602,3 +3602,78 @@
   font-size: 0.9rem;
   margin-bottom: 0;
 }
+
+/* Product listing visual grid */
+.eipi-product-visual-grid {
+  margin-top: 0.5rem;
+}
+
+.eipi-product-visual-card {
+  background: #fff;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 1px 8px rgba(15, 23, 42, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.eipi-product-visual-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.1);
+}
+
+.eipi-product-visual-card:focus-visible {
+  outline: 2px solid #032761;
+  outline-offset: 2px;
+}
+
+.eipi-product-visual-media {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  object-position: center;
+  background: #e2e8f0;
+}
+
+.eipi-product-visual-name {
+  margin: 0;
+  padding: 0.58rem 0.75rem 0.68rem;
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+  font-size: 0.89rem;
+  font-weight: 500;
+  line-height: 1.3;
+  color: #0f172a;
+}
+
+.eipi-product-detail-img {
+  min-height: 260px;
+  background-size: cover;
+  background-position: center;
+}
+
+@media (max-width: 767.98px) {
+  .eipi-product-visual-media {
+    height: 190px;
+  }
+
+  .eipi-product-detail-img {
+    min-height: 210px;
+  }
+}
+
+.eipi-product-grid-page.ftco-section {
+  padding-top: 1.65rem !important;
+  padding-bottom: 1rem !important;
+}
+
+.eipi-product-detail-section.ftco-section {
+  padding-top: 1.45rem !important;
+  padding-bottom: 1rem !important;
+}
+
+.eipi-product-detail-specs {
+  gap: 0.45rem;
+  margin-bottom: 1.1rem;
+}
